@@ -11,7 +11,7 @@
 use pane_extension::alloc::{string::String, vec::Vec};
 use pane_extension::applications::{self, Application};
 use pane_extension::indexed::{IndexedAction, IndexedResult};
-use pane_extension::{Command, NoCustomView};
+use pane_extension::{Command, NoDesignedView};
 
 struct Applications;
 pane_extension::export!(Applications);
@@ -27,7 +27,7 @@ fn installed() -> Result<Vec<Application>, String> {
 /// A root provider: Pane never opens or runs it, so the command keeps the
 /// defaults (opening it is an error).
 impl Command for Applications {
-    type CustomView = NoCustomView;
+    type DesignedView = NoDesignedView;
 }
 
 impl pane_extension::indexed::Guest for Applications {
